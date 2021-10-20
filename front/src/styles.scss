@@ -2,6 +2,13 @@
 
 @import "../node_modules/normalize.css/normalize.css";
 
+*,
+*::before,
+*::after,
+*::marker {
+  box-sizing: border-box;
+}
+
 body {
   font-family: sans-serif;
 }
