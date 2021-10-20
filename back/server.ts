@@ -1,15 +1,14 @@
 console.log("About to start the server...");
 import express from "express";
 import serveIndex from "serve-index";
+import morgan from "morgan";
 
 const app = express();
 const port = 3000;
 const dir = ".";
 
-app.use((req, res, next) => {
-  console.log("req.url", req.method, req.url);
-  next();
-});
+// access log
+app.use(morgan("tiny"));
 
 app.use(express.static(dir));
 app.use(serveIndex(dir, { icons: true }));
