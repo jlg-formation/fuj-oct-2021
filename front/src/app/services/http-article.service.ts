@@ -18,6 +18,7 @@ export class HttpArticleService extends ArticleService {
       next: (articles) => {
         console.log('articles: ', articles);
         this.articles = articles;
+        this.save();
       },
       complete: () => {
         console.log('complete');
