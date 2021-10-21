@@ -9,7 +9,14 @@ import { Article } from '../interfaces/article';
 })
 export class StockComponent {
   selectedArticles = new Set<Article>();
+
   constructor(public articleService: ArticleService) {}
+
+  remove() {
+    console.log('remove');
+    this.articleService.remove(this.selectedArticles);
+    this.selectedArticles.clear();
+  }
 
   toggle(a: Article) {
     console.log('toggle: ', a);
