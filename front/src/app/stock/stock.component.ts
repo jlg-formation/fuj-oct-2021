@@ -8,9 +8,15 @@ import { Article } from '../interfaces/article';
   styleUrls: ['./stock.component.scss'],
 })
 export class StockComponent {
+  selectedArticles = new Set<Article>();
   constructor(public articleService: ArticleService) {}
 
   toggle(a: Article) {
     console.log('toggle: ', a);
+    if (this.selectedArticles.has(a)) {
+      this.selectedArticles.delete(a);
+      return;
+    }
+    this.selectedArticles.add(a);
   }
 }
