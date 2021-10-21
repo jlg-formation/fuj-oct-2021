@@ -1,6 +1,8 @@
+import { ArticleService } from './../../services/article.service';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Article } from 'src/app/interfaces/article';
 
 @Component({
   selector: 'app-add',
@@ -14,11 +16,11 @@ export class AddComponent {
     qty: new FormControl(1, [Validators.required]),
   });
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private articleService: ArticleService) {}
 
   submit() {
     console.log('submit');
-    // ajout article dans la liste
+    this.articleService.add(this.f.value as Article);
     this.router.navigateByUrl('/stock');
   }
 }

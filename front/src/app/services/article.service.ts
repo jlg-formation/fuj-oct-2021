@@ -11,4 +11,8 @@ export class ArticleService {
     { name: 'Marteau', price: 3, qty: 5 },
     { name: 'Pince', price: 235, qty: 1200 },
   ];
+
+  add(article: Article) {
+    this.articles.push(article);
+  }
 }
