@@ -1,3 +1,4 @@
+import { WidgetModule } from './../widget/widget.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -8,6 +9,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [StockComponent, AddComponent],
-  imports: [CommonModule, StockRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    StockRoutingModule,
+    ReactiveFormsModule,
+    WidgetModule,
+  ],
 })
 export class StockModule {}
