@@ -1,5 +1,6 @@
 import { ArticleService } from './../services/article.service';
 import { Component } from '@angular/core';
+import { Article } from '../interfaces/article';
 
 @Component({
   selector: 'app-stock',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class StockComponent {
   constructor(public articleService: ArticleService) {}
+
+  toggle(a: Article) {
+    console.log('toggle: ', a);
+  }
 }
