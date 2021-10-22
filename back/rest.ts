@@ -1,10 +1,13 @@
 import express from "express";
 import { Resource } from "./interfaces/Resource";
-import { ResourceFileService } from "./services/resource-file.service";
+import { ResourceServiceFactory } from "./services/ResourceServiceFactory";
 
 export function rest<T extends Resource>(resourceName: string) {
   const app = express.Router();
-  const resourceService = new ResourceFileService(resourceName);
+  const resourceService = ResourceServiceFactory.get(
+    process.env.GESTION_STOCK_DBTYPE || "ram",
+    resourceName
+  );
 
   app.use(express.json());
 
