@@ -23,6 +23,11 @@ app.use("/api", api());
 app.use(express.static(dir));
 app.use(serveIndex(dir, { icons: true }));
 
+// path rewrite
+app.get("/*", (req, res) => {
+  res.sendFile(resolve(dir, "index.html"));
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
