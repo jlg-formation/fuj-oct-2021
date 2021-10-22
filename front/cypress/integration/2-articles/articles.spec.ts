@@ -7,7 +7,10 @@ describe('first test', () => {
 
     cy.get('main').contains('Voir le stock').click();
     cy.log('should show the stocks');
-    cy.get('main').contains('Ajouter').click();
+    cy.get('main')
+      .contains('Ajouter', { timeout: 10000 })
+      .should('be.visible')
+      .click();
     cy.get('main').get('input[ng-reflect-name=name]').clear().type(testname);
     cy.get('main').get('input[ng-reflect-name=price]').clear().type('1.45');
     cy.get('main').get('input[ng-reflect-name=qty]').clear().type('345');
