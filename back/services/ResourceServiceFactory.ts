@@ -1,8 +1,8 @@
-import { ResourceFileService } from "./resource-file.service";
-import { ResourceService } from "./resource.service";
-import { AbstractResourceService } from "./AbstractResourceService";
 import { Resource } from "../interfaces/Resource";
+import { AbstractResourceService } from "./AbstractResourceService";
+import { ResourceFileService } from "./resource-file.service";
 import { ResourceMongoService } from "./resource-mongo.service";
+import { ResourceService } from "./resource.service";
 
 export class ResourceServiceFactory {
   static get<T extends Resource>(
