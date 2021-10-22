@@ -10,11 +10,12 @@ import { LayoutModule } from './layout/layout.module';
 import { HomeComponent } from './routes/home/home.component';
 import { LegalComponent } from './routes/legal/legal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NotFoundComponent } from './routes/not-found/not-found.component';
 
 registerLocaleData(localeFr, 'fr');
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LegalComponent],
+  declarations: [AppComponent, HomeComponent, LegalComponent, NotFoundComponent],
   imports: [BrowserModule, AppRoutingModule, LayoutModule, HttpClientModule],
   providers: [
     { provide: LOCALE_ID, useValue: 'fr' },
