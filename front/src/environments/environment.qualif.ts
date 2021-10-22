@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backEndDomainUrl: 'http://maboite.com',
+  backEndDomainUrl: 'http://qualif.maboite.com',
 };
