@@ -1,5 +1,5 @@
 import { Resource } from "../interfaces/Resource";
-import { MongoClient, Document } from "mongodb";
+import { MongoClient, Document, ObjectId } from "mongodb";
 
 const uri =
   process.env.GESTION_STOCK_MONGO_URI || "mongodb://localhost/gestion-stock";
@@ -22,6 +22,14 @@ export class ResourceMongoService<T extends Resource> {
 
   async removeBulk(ids: string[]) {
     console.log("removeBulk");
+    await client
+      .db()
+      .collection(this.resourceName)
+      .deleteMany({
+        _id: {
+          $in: ids.map((id) => new ObjectId(id)),
+        },
+      });
   }
 
   async retrieveAll(): Promise<T[]> {
