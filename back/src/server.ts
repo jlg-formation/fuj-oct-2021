@@ -8,7 +8,7 @@ import { api } from "./api";
 console.log("About to start the server...");
 
 const app = express();
-const port = 3000;
+const port = process.env.GESTION_STOCK_PORT || 3000;
 const dir = resolve("../front/dist/front");
 
 // cors
